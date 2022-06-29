@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appointmentSlot">
+      <h2 data-cy="appointmentSlotDetailsHeading">
+        <span jhiTranslate="onlineAppointmentApp.appointmentSlot.detail.title">Appointment Slot</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appointmentSlot.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentSlot.startTime">Start Time</span></dt>
+        <dd>
+          <span>{{ appointmentSlot.startTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentSlot.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ appointmentSlot.endTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentSlot.definitionId">Definition Id</span></dt>
+        <dd>
+          <div *ngIf="appointmentSlot.definitionId">
+            <a [routerLink]="['/appointment-definition', appointmentSlot.definitionId?.id, 'view']">{{
+              appointmentSlot.definitionId?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/appointment-slot', appointmentSlot.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

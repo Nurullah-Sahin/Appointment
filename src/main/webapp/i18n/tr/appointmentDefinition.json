@@ -1,0 +1,34 @@
+{
+  "onlineAppointmentApp": {
+    "appointmentDefinition": {
+      "home": {
+        "title": "Appointment Definitions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appointment Definition",
+        "createOrEditLabel": "Create or edit a Appointment Definition",
+        "notFound": "No Appointment Definitions found"
+      },
+      "created": "A new Appointment Definition is created with identifier {{ param }}",
+      "updated": "A Appointment Definition is updated with identifier {{ param }}",
+      "deleted": "A Appointment Definition is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appointment Definition {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment Definition"
+      },
+      "id": "ID",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "name": "Name",
+      "allowRescheduleNoSoonerThan": "Allow Reschedule No Sooner Than",
+      "allowRescheduleNoLaterThan": "Allow Reschedule No Later Than",
+      "allowScheduleNoSoonerThan": "Allow Schedule No Sooner Than",
+      "allowScheduleNoLaterThan": "Allow Schedule No Later Than",
+      "numberOfReschedule": "Number Of Reschedule",
+      "duration": "Duration",
+      "categoryName": "Category Name",
+      "categoryId": "Category Id"
+    }
+  }
+}

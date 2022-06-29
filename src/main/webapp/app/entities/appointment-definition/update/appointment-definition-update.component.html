@@ -1,0 +1,217 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-appointment-definition-heading"
+        data-cy="AppointmentDefinitionCreateUpdateHeading"
+        jhiTranslate="onlineAppointmentApp.appointmentDefinition.home.createOrEditLabel"
+      >
+        Create or edit a Appointment Definition
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.startTime" for="field_startTime"
+            >Start Time</label
+          >
+          <div class="input-group">
+            <input
+              id="field_startTime"
+              data-cy="startTime"
+              type="text"
+              class="form-control"
+              name="startTime"
+              ngbDatepicker
+              #startTimeDp="ngbDatepicker"
+              formControlName="startTime"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="startTimeDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.endTime" for="field_endTime"
+            >End Time</label
+          >
+          <div class="input-group">
+            <input
+              id="field_endTime"
+              data-cy="endTime"
+              type="text"
+              class="form-control"
+              name="endTime"
+              ngbDatepicker
+              #endTimeDp="ngbDatepicker"
+              formControlName="endTime"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="endTimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowRescheduleNoSoonerThan"
+            for="field_allowRescheduleNoSoonerThan"
+            >Allow Reschedule No Sooner Than</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="allowRescheduleNoSoonerThan"
+            id="field_allowRescheduleNoSoonerThan"
+            data-cy="allowRescheduleNoSoonerThan"
+            formControlName="allowRescheduleNoSoonerThan"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowRescheduleNoLaterThan"
+            for="field_allowRescheduleNoLaterThan"
+            >Allow Reschedule No Later Than</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="allowRescheduleNoLaterThan"
+            id="field_allowRescheduleNoLaterThan"
+            data-cy="allowRescheduleNoLaterThan"
+            formControlName="allowRescheduleNoLaterThan"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowScheduleNoSoonerThan"
+            for="field_allowScheduleNoSoonerThan"
+            >Allow Schedule No Sooner Than</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="allowScheduleNoSoonerThan"
+            id="field_allowScheduleNoSoonerThan"
+            data-cy="allowScheduleNoSoonerThan"
+            formControlName="allowScheduleNoSoonerThan"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowScheduleNoLaterThan"
+            for="field_allowScheduleNoLaterThan"
+            >Allow Schedule No Later Than</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="allowScheduleNoLaterThan"
+            id="field_allowScheduleNoLaterThan"
+            data-cy="allowScheduleNoLaterThan"
+            formControlName="allowScheduleNoLaterThan"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="onlineAppointmentApp.appointmentDefinition.numberOfReschedule"
+            for="field_numberOfReschedule"
+            >Number Of Reschedule</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="numberOfReschedule"
+            id="field_numberOfReschedule"
+            data-cy="numberOfReschedule"
+            formControlName="numberOfReschedule"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.duration" for="field_duration"
+            >Duration</label
+          >
+          <input type="text" class="form-control" name="duration" id="field_duration" data-cy="duration" formControlName="duration" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.categoryName" for="field_categoryName"
+            >Category Name</label
+          >
+          <select class="form-control" id="field_categoryName" data-cy="categoryName" name="categoryName" formControlName="categoryName">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                appointmentCategoryOption.id === editForm.get('categoryName')!.value?.id
+                  ? editForm.get('categoryName')!.value
+                  : appointmentCategoryOption
+              "
+              *ngFor="let appointmentCategoryOption of categoryNamesCollection; trackBy: trackAppointmentCategoryById"
+            >
+              {{ appointmentCategoryOption.categoryName }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="onlineAppointmentApp.appointmentDefinition.categoryId" for="field_categoryId"
+            >Category Id</label
+          >
+          <select class="form-control" id="field_categoryId" data-cy="categoryId" name="categoryId" formControlName="categoryId">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                appointmentCategoryOption.id === editForm.get('categoryId')!.value?.id
+                  ? editForm.get('categoryId')!.value
+                  : appointmentCategoryOption
+              "
+              *ngFor="let appointmentCategoryOption of categoryIdsCollection; trackBy: trackAppointmentCategoryById"
+            >
+              {{ appointmentCategoryOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

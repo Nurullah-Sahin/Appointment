@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="AppointmentSlotHeading">
+    <span jhiTranslate="onlineAppointmentApp.appointmentSlot.home.title">Appointment Slots</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="onlineAppointmentApp.appointmentSlot.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-appointment-slot"
+        [routerLink]="['/appointment-slot/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="onlineAppointmentApp.appointmentSlot.home.createLabel"> Create a new Appointment Slot </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="appointmentSlots?.length === 0">
+    <span jhiTranslate="onlineAppointmentApp.appointmentSlot.home.notFound">No appointmentSlots found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="appointmentSlots && appointmentSlots.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="onlineAppointmentApp.appointmentSlot.startTime">Start Time</span></th>
+          <th scope="col"><span jhiTranslate="onlineAppointmentApp.appointmentSlot.endTime">End Time</span></th>
+          <th scope="col"><span jhiTranslate="onlineAppointmentApp.appointmentSlot.definitionId">Definition Id</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointmentSlot of appointmentSlots; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/appointment-slot', appointmentSlot.id, 'view']">{{ appointmentSlot.id }}</a>
+          </td>
+          <td>{{ appointmentSlot.startTime | formatMediumDatetime }}</td>
+          <td>{{ appointmentSlot.endTime | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="appointmentSlot.definitionId">
+              <a [routerLink]="['/appointment-definition', appointmentSlot.definitionId?.id, 'view']">{{
+                appointmentSlot.definitionId?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/appointment-slot', appointmentSlot.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/appointment-slot', appointmentSlot.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(appointmentSlot)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

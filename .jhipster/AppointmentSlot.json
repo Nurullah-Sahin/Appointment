@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "fieldName": "startTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipName": "definitionId",
+      "otherEntityName": "appointmentDefinition",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "id"
+    }
+  ],
+  "service": "serviceImpl",
+  "dto": "no",
+  "readOnly": false,
+  "pagination": "no",
+  "name": "AppointmentSlot",
+  "changelogDate": "20210820131147"
+}

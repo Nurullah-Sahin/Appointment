@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "fieldName": "startTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "allowRescheduleNoSoonerThan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "allowRescheduleNoLaterThan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "allowScheduleNoSoonerThan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "allowScheduleNoLaterThan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numberOfReschedule",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Duration"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipName": "categoryName",
+      "otherEntityName": "appointmentCategory",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "categoryName",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "categoryName"
+    },
+    {
+      "relationshipName": "categoryId",
+      "otherEntityName": "appointmentCategory",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "id"
+    }
+  ],
+  "service": "serviceImpl",
+  "dto": "no",
+  "readOnly": false,
+  "pagination": "no",
+  "name": "AppointmentDefinition",
+  "changelogDate": "20210818073237"
+}

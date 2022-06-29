@@ -1,0 +1,26 @@
+{
+  "onlineAppointmentApp": {
+    "appointmentCategory": {
+      "home": {
+        "title": "Appointment Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appointment Category",
+        "createOrEditLabel": "Create or edit a Appointment Category",
+        "notFound": "No Appointment Categories found"
+      },
+      "created": "A new Appointment Category is created with identifier {{ param }}",
+      "updated": "A Appointment Category is updated with identifier {{ param }}",
+      "deleted": "A Appointment Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appointment Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment Category"
+      },
+      "id": "ID",
+      "categoryName": "Category Name",
+      "hosts": "Hosts",
+      "userId": "User Id"
+    }
+  }
+}

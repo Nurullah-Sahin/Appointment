@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appointmentDefinition">
+      <h2 data-cy="appointmentDefinitionDetailsHeading">
+        <span jhiTranslate="onlineAppointmentApp.appointmentDefinition.detail.title">Appointment Definition</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.startTime">Start Time</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.startTime | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.endTime | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.name">Name</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.name }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowRescheduleNoSoonerThan">Allow Reschedule No Sooner Than</span>
+        </dt>
+        <dd>
+          <span>{{ appointmentDefinition.allowRescheduleNoSoonerThan }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowRescheduleNoLaterThan">Allow Reschedule No Later Than</span>
+        </dt>
+        <dd>
+          <span>{{ appointmentDefinition.allowRescheduleNoLaterThan }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowScheduleNoSoonerThan">Allow Schedule No Sooner Than</span>
+        </dt>
+        <dd>
+          <span>{{ appointmentDefinition.allowScheduleNoSoonerThan }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="onlineAppointmentApp.appointmentDefinition.allowScheduleNoLaterThan">Allow Schedule No Later Than</span>
+        </dt>
+        <dd>
+          <span>{{ appointmentDefinition.allowScheduleNoLaterThan }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.numberOfReschedule">Number Of Reschedule</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.numberOfReschedule }}</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.duration">Duration</span></dt>
+        <dd>
+          <span>{{ appointmentDefinition.duration | duration }} ({{ appointmentDefinition.duration }})</span>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.categoryName">Category Name</span></dt>
+        <dd>
+          <div *ngIf="appointmentDefinition.categoryName">
+            <a [routerLink]="['/appointment-category', appointmentDefinition.categoryName?.id, 'view']">{{
+              appointmentDefinition.categoryName?.categoryName
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="onlineAppointmentApp.appointmentDefinition.categoryId">Category Id</span></dt>
+        <dd>
+          <div *ngIf="appointmentDefinition.categoryId">
+            <a [routerLink]="['/appointment-category', appointmentDefinition.categoryId?.id, 'view']">{{
+              appointmentDefinition.categoryId?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/appointment-definition', appointmentDefinition.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

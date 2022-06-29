@@ -1,0 +1,27 @@
+{
+  "onlineAppointmentApp": {
+    "appointmentHolder": {
+      "home": {
+        "title": "Appointment Holders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appointment Holder",
+        "createOrEditLabel": "Create or edit a Appointment Holder",
+        "notFound": "No Appointment Holders found"
+      },
+      "created": "A new Appointment Holder is created with identifier {{ param }}",
+      "updated": "A Appointment Holder is updated with identifier {{ param }}",
+      "deleted": "A Appointment Holder is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appointment Holder {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment Holder"
+      },
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "adress": "Adress"
+    }
+  }
+}
